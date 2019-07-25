@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Planetaris
+namespace HonzCore
 {
 #if WINDOWS || LINUX
     /// <summary>

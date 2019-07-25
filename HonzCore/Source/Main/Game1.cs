@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Input;
 
 using HonzCore.ECS;
 
-namespace Planetaris
+namespace HonzCore
 {
     /// <summary>
     /// This is the main type for your game.

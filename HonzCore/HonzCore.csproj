@@ -9,8 +9,8 @@
     <ProjectGuid>{9C21DBA1-3061-42A4-8496-5FC0A9D1D6E8}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Planetaris</RootNamespace>
-    <AssemblyName>Planetaris</AssemblyName>
+    <RootNamespace>HonzCore</RootNamespace>
+    <AssemblyName>HonzCore</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MonoGamePlatform>Windows</MonoGamePlatform>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
