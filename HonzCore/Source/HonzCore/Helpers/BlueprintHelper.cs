@@ -36,7 +36,8 @@ namespace HonzCore.Helpers
             {
                 throw new ArgumentException("The GameObject cannot be null");
             }
-            blueprints.Add(name ?? gm.name, gm);
+
+            blueprints.Add(name ?? gm.name, gm.Clone());
         }
 
         public GameObject CreateBlueprint(string key, GameObject parent = null, Scene parentScene = null)
@@ -45,6 +46,7 @@ namespace HonzCore.Helpers
             {
                 throw new ArgumentException("The index cannot be null");
             }
+
             GameObject newGm = blueprints[key].Clone();
             newGm.SetParent(parent ?? (parentScene.root ?? ApplicationHelper.instance.activeScene.root));
             return newGm;
@@ -54,10 +56,12 @@ namespace HonzCore.Helpers
         {
             
         }
+
         public void Initialize()
         {
             
         }
+
         public void Update(GameTime time)
         {
             
