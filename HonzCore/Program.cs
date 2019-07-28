@@ -14,8 +14,7 @@ namespace HonzCore
         [STAThread]
         static void Main()
         {
-            using (var game = new Game1())
-                game.Run();
+            HonzCore.Main.HonzCoreMain.instance.Run(new Game1());
         }
     }
 #endif

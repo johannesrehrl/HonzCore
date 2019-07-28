@@ -23,13 +23,13 @@ namespace HonzCore.ECS
 
         public Scene ()
         {
-            root = new GameObject();
+            root = new GameObject("root");
             root.isRoot = true;
+            root.parentScene = this;
             root.isInScene = true;
 
 			uiSystem = new UIEntity();
 			uiSystem.IsRoot = true;
-			root.isInScene = true;
 		}
 
         public void Update()

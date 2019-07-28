@@ -29,7 +29,7 @@ namespace HonzCore.ECS
             }
         }
 
-        public Scene parentScene { get; private set; }
+        public Scene parentScene { get; internal set; }
 
         private List<Component.Component> components = new List<Component.Component>();
         private Component.Component[] _copiedComponents;
