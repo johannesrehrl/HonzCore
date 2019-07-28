@@ -36,7 +36,8 @@ namespace HonzCore.Helpers
             {
                 throw new ArgumentException("The GameObject cannot be null");
             }
-            blueprints.Add(name ?? gm.name, gm);
+
+            blueprints.Add(name ?? gm.name, gm.Clone());
         }
 
         public GameObject CreateBlueprint(string key, GameObject parent = null, Scene parentScene = null)
@@ -47,7 +48,7 @@ namespace HonzCore.Helpers
             }
 
             GameObject newGm = blueprints[key].Clone();
-            newGm.SetParent(parent.Clone() ?? (parentScene.root.Clone() ?? ApplicationHelper.instance.activeScene.root.Clone()));
+            newGm.SetParent(parent ?? (parentScene.root ?? ApplicationHelper.instance.activeScene.root));
             return newGm;
         }
 
