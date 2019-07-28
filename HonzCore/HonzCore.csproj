@@ -48,6 +48,7 @@
     <Compile Include="Source\HonzCore\ECS\Transform.cs" />
     <Compile Include="Source\HonzCore\Helpers\ApplicationHelper.cs" />
     <Compile Include="Source\HonzCore\Helpers\BlueprintHelper.cs" />
+    <Compile Include="Source\HonzCore\Helpers\ContentHelper.cs" />
     <Compile Include="Source\HonzCore\Helpers\IHelper.cs" />
     <Compile Include="Source\HonzCore\Helpers\InputHelper.cs" />
     <Compile Include="Source\HonzCore\Helpers\TimeHelper.cs" />
@@ -64,12 +65,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Sprites\Planetaris.png" />
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
     <None Include="app.manifest" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

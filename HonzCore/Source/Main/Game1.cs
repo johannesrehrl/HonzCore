@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Content;
+using System.IO;
 
 using HonzCore.ECS;
 
@@ -33,7 +35,12 @@ namespace HonzCore
         /// </summary>
         protected override void Initialize()
         {
-            helpers = new HonzCore.Helpers.IHelper[] { HonzCore.Helpers.ApplicationHelper.instance, HonzCore.Helpers.InputHelper.instance, HonzCore.Helpers.BlueprintHelper.instance, HonzCore.Helpers.TimeHelper.instance};
+            helpers = new HonzCore.Helpers.IHelper[] { HonzCore.Helpers.ApplicationHelper.instance,
+                                                       HonzCore.Helpers.InputHelper.instance,
+                                                       HonzCore.Helpers.BlueprintHelper.instance,
+                                                       HonzCore.Helpers.TimeHelper.instance,
+                                                       HonzCore.Helpers.ContentHelper.instance
+                                                     };
 
             foreach(var h in helpers)
             {
@@ -41,6 +48,8 @@ namespace HonzCore
             }
 
             scene = new Scene();
+
+            HonzCore.Helpers.ContentHelper.LoadTextures(base.Content,  "Sprites");
 
             gm1 = new GameObject();
             gm1.SetParent(scene.root);
@@ -104,7 +113,7 @@ namespace HonzCore
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-            
+
             foreach(var h in helpers)
             {
                 h.Draw(gameTime);
