@@ -61,6 +61,10 @@ namespace HonzCore.Main
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
+            spriteBatch.Begin();
+            spriteBatch.Draw(Helpers.ContentHelper.GetTexture("Planetaris"), new Vector2(0, 0), Color.White);
+            spriteBatch.End();
+
             HonzCoreMain.instance.Draw(gameTime);
             game.Draw();
 
