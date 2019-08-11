@@ -13,6 +13,8 @@ namespace HonzCore.ECS
 		//Master UIEntity for this Scene.
 		public UIEntity uiSystem { get; private set; }
 
+        public Graphics.Camera camera { get; private set; }
+
         public bool isActiveScene
         {
             get
@@ -27,6 +29,8 @@ namespace HonzCore.ECS
             root.isRoot = true;
             root.parentScene = this;
             root.isInScene = true;
+
+            camera = new Graphics.Camera(10, Microsoft.Xna.Framework.Vector2.Zero);
 
 			uiSystem = new UIEntity();
 			uiSystem.IsRoot = true;

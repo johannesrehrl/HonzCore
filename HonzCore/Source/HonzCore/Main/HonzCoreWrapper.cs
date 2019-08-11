@@ -10,20 +10,17 @@ namespace HonzCore.Main
 {
     public class HonzCoreWrapper : Game
     {
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
-
-        Scene scene;
-        GameObject gm1;
+        internal GraphicsDeviceManager graphics;
+        internal SpriteBatch spriteBatch;
 
         HonzCoreGame game;
-
 
         public HonzCoreWrapper(HonzCoreGame game)
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             this.game = game;
+            game.wrapper = this;
         }
 
         protected override void Initialize()
@@ -33,16 +30,12 @@ namespace HonzCore.Main
             Helpers.ContentHelper.LoadTextures(Content, "Sprites");
 
             game.Initialize();
-
-
-            
             base.Initialize();
         }
 
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
         }
 
         protected override void UnloadContent()
@@ -59,12 +52,6 @@ namespace HonzCore.Main
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
-
-            spriteBatch.Begin();
-            spriteBatch.Draw(Helpers.ContentHelper.GetTexture("Planetaris"), new Vector2(0, 0), Color.White);
-            spriteBatch.End();
-
             HonzCoreMain.instance.Draw(gameTime);
             game.Draw();
 

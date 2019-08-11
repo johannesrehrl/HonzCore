@@ -20,16 +20,10 @@ namespace HonzCore
 
             gm1 = new GameObject();
             gm1.SetParent(scene.root);
-            HonzCore.ECS.Component.TestComponent comp = new HonzCore.ECS.Component.TestComponent();
+            ECS.Component.TextureRenderer comp = new ECS.Component.TextureRenderer();
+            comp.texture = Helpers.ContentHelper.GetTexture("Planetaris");
             gm1.AddComponent(comp);
-
-            GameObject gm2 = gm1.Clone("Hannes");
-            gm2.SetParent(gm1);
             HonzCore.Helpers.ApplicationHelper.instance.LoadScene(scene);
-            System.Console.WriteLine(scene.root.FindChildren("Hannes", recursive: true, requireEnabled: true));
-
-            HonzCore.Helpers.BlueprintHelper.instance.RegisterBlueprint(gm2, "TestBlueprint");
-            var gm3 = HonzCore.Helpers.BlueprintHelper.instance.CreateBlueprint("TestBlueprint", gm2);
         }
         public override void Draw()
         {

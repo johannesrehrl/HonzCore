@@ -13,6 +13,21 @@ namespace HonzCore.Main
 
         List<Helpers.IHelper> helpers = new List<Helpers.IHelper>();
 
+        HonzCoreGame game;
+
+        public Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch
+        {
+            get => game.spriteBatch;
+        }
+        public Microsoft.Xna.Framework.Graphics.GraphicsDevice graphicsDevice
+        {
+            get => game.graphicsDevice;
+        }
+        public Microsoft.Xna.Framework.GraphicsDeviceManager graphics
+        {
+            get => game.graphics;
+        }
+
         private static HonzCoreMain _instance;
         public static HonzCoreMain instance
         {
@@ -32,6 +47,7 @@ namespace HonzCore.Main
 
         public void Run(HonzCoreGame game)
         {
+            this.game = game;
             using (var wrapper = new HonzCoreWrapper(game))
                 wrapper.Run();
         }
@@ -47,6 +63,7 @@ namespace HonzCore.Main
             RegisterHelper(Helpers.ContentHelper.instance);
             RegisterHelper(Helpers.InputHelper.instance);
             RegisterHelper(Helpers.TimeHelper.instance);
+            RegisterHelper(Helpers.GraphicsHelper.instance);
 
             //Initializes each Helper
             helpers.ForEach(x => x.Initialize());
@@ -60,9 +77,9 @@ namespace HonzCore.Main
         }
         internal void Draw(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            helpers.ForEach(x => x.Draw(gameTime));
-
             Helpers.ApplicationHelper.instance.activeScene.Draw();
+
+            helpers.ForEach(x => x.Draw(gameTime));
         }
 
         public void RegisterHelper(Helpers.IHelper helper)
